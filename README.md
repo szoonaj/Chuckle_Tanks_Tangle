@@ -1,1 +1,1 @@
-# An Amazing project for the Computer Games AGH Course 
+# Project for the Computer Games AGH Course 
