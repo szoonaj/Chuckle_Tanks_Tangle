@@ -1,1 +1,1 @@
-# Chuckle_Tanks_Tangle
+# Project prepared for Computer Games AGH Course 
