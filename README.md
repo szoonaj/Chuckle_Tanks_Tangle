@@ -1,1 +1,1 @@
-# Project for the Computer Games AGH Course 
+# Project for the AGH Computer Games Course 
