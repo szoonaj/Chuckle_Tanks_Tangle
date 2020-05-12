@@ -32,7 +32,7 @@ namespace Complete
             SpawnAllTanks();
             SetCameraTargets();
 
-            // Once the tanks have been created and the camera is using them as targets, start the game.
+            // Start the game.
             StartCoroutine (GameLoop ());
         }
 
@@ -63,12 +63,10 @@ namespace Complete
                 targets[i] = m_Tanks[i].m_Instance.transform;
             }
 
-            // These are the targets the camera should follow.
             m_CameraControl.m_Targets = targets;
         }
 
 
-        // This is called from start and will run each phase of the game one after another.
         private IEnumerator GameLoop ()
         {
             // Start off by running the 'RoundStarting' coroutine but don't return until it's finished.
@@ -97,14 +95,12 @@ namespace Complete
 
         private IEnumerator RoundStarting ()
         {
-            // As soon as the round starts reset the tanks and make sure they can't move.
             ResetAllTanks ();
             DisableTankControl ();
 
             // Snap the camera's zoom and position to something appropriate for the reset tanks.
             m_CameraControl.SetStartPositionAndSize ();
 
-            // Increment the round number and display text showing the players what round it is.
             m_RoundNumber++;
             m_MessageText.text = "ROUND " + m_RoundNumber;
 
@@ -115,10 +111,8 @@ namespace Complete
 
         private IEnumerator RoundPlaying ()
         {
-            // As soon as the round begins playing let the players control the tanks.
             EnableTankControl ();
 
-            // Clear the text from the screen.
             m_MessageText.text = string.Empty;
 
             // While there is not one tank left...
@@ -132,7 +126,6 @@ namespace Complete
 
         private IEnumerator RoundEnding ()
         {
-            // Stop tanks from moving.
             DisableTankControl ();
 
             // Clear the winner from the previous round.
@@ -145,10 +138,8 @@ namespace Complete
             if (m_RoundWinner != null)
                 m_RoundWinner.m_Wins++;
 
-            // Now the winner's score has been incremented, see if someone has one the game.
             m_GameWinner = GetGameWinner ();
 
-            // Get a message based on the scores and whether or not there is a game winner and display it.
             string message = EndMessage ();
             m_MessageText.text = message;
 
@@ -176,7 +167,6 @@ namespace Complete
         }
         
         
-        // This function is to find out if there is a winner of the round.
         // This function is called with the assumption that 1 or fewer tanks are currently active.
         private TankManager GetRoundWinner()
         {
@@ -193,7 +183,6 @@ namespace Complete
         }
 
 
-        // This function is to find out if there is a winner of the game.
         private TankManager GetGameWinner()
         {
             // Go through all the tanks...
@@ -212,7 +201,6 @@ namespace Complete
         // Returns a string message to display at the end of each round.
         private string EndMessage()
         {
-            // By default when a round ends there are no winners so the default end message is a draw.
             string message = "DRAW!";
 
             // If there is a winner then change the message to reflect that.
@@ -236,7 +224,6 @@ namespace Complete
         }
 
 
-        // This function is used to turn all the tanks back on and reset their positions and properties.
         private void ResetAllTanks()
         {
             for (int i = 0; i < m_Tanks.Length; i++)

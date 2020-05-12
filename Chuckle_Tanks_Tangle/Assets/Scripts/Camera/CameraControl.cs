@@ -59,21 +59,18 @@ namespace Complete
                 numTargets++;
             }
 
-            // If there are targets divide the sum of the positions by the number of them to find the average.
             if (numTargets > 0)
                 averagePos /= numTargets;
 
             // Keep the same y value.
             averagePos.y = transform.position.y;
 
-            // The desired position is the average position;
             m_DesiredPosition = averagePos;
         }
 
 
         private void Zoom ()
         {
-            // Find the required size based on the desired position and smoothly transition to that size.
             float requiredSize = FindRequiredSize();
             m_Camera.orthographicSize = Mathf.SmoothDamp (m_Camera.orthographicSize, requiredSize, ref m_ZoomSpeed, m_DampTime);
         }
@@ -81,10 +78,8 @@ namespace Complete
 
         private float FindRequiredSize ()
         {
-            // Find the position the camera rig is moving towards in its local space.
             Vector3 desiredLocalPos = transform.InverseTransformPoint(m_DesiredPosition);
 
-            // Start the camera's size calculation at zero.
             float size = 0f;
 
             // Go through all the targets...
@@ -107,7 +102,6 @@ namespace Complete
                 size = Mathf.Max(size, Mathf.Abs(desiredPosToTarget.x) / m_Camera.aspect);
             }
 
-            // Add the edge buffer to the size.
             size += m_ScreenEdgeBuffer;
 
             // Make sure the camera's size isn't below the minimum.
@@ -122,10 +116,8 @@ namespace Complete
             // Find the desired position.
             FindAveragePosition ();
 
-            // Set the camera's position to the desired position without damping.
             transform.position = m_DesiredPosition;
 
-            // Find and set the required size of the camera.
             m_Camera.orthographicSize = FindRequiredSize ();
         }
     }

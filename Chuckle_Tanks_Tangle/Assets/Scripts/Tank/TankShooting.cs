@@ -25,7 +25,6 @@ namespace Complete
 
         private void OnEnable()
         {
-            // When the tank is turned on, reset the launch force and the UI
             m_CurrentLaunchForce = m_MinLaunchForce;
             m_AimSlider.value = m_MinLaunchForce;
         }
@@ -33,17 +32,14 @@ namespace Complete
 
         private void Start ()
         {
-            // The fire axis is based on the player number.
             m_FireButton = "Fire" + m_PlayerNumber;
 
-            // The rate that the launch force charges up is the range of possible forces by the max charge time.
             m_ChargeSpeed = (m_MaxLaunchForce - m_MinLaunchForce) / m_MaxChargeTime;
         }
 
 
         private void Update ()
         {
-            // The slider should have a default value of the minimum launch force.
             m_AimSlider.value = m_MinLaunchForce;
 
             // If the max force has been exceeded and the shell hasn't yet been launched...
