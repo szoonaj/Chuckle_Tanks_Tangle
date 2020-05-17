@@ -1,6 +1,7 @@
-- Add new levels and differentiate them
+- Chickens have health and can die
 - Add chickens in a random moment (e.g. +20-40s) during each level
-- Chickens can shoot at players and vice versa (or chickens can leave "bombs" instead)
+- Chickens can shoot at players and vice versa (or chickens can leave "bombs" instead) or they just move randomly and just disturb players
+- Add new levels and differentiate them
 - Change music and sound effects
 - Add Menu and Gameover scene and switching between scenes (Menu (play/quit), levels, gameover (play again/quit)
 - Add label displaying current score
