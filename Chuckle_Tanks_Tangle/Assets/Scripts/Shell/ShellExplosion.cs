@@ -41,7 +41,11 @@ namespace Complete
                 // Find the TankHealth script associated with the rigidbody.
                 TankHealth targetHealth = targetRigidbody.GetComponent<TankHealth> ();
 
+                //ChickenHealth chickenHealth = targetRigidbody.GetComponent<ChickenHealth>();
+
                 // If there is no TankHealth script attached to the gameobject, go on to the next collider.
+               // if (!targetHealth || !chickenHealth)
+                //    continue;
                 if (!targetHealth)
                     continue;
 
@@ -50,6 +54,7 @@ namespace Complete
 
                 // Deal this damage to the tank.
                 targetHealth.TakeDamage (damage);
+               // chickenHealth.TakeDamage(damage);
             }
 
             // Unparent the particles from the shell.

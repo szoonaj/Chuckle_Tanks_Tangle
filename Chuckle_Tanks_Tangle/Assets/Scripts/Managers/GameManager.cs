@@ -15,6 +15,8 @@ namespace Complete
         public GameObject m_TankPrefab;             // Reference to the prefab the players will control.
         public TankManager[] m_Tanks;               // A collection of managers for enabling and disabling different aspects of the tanks.
 
+        //public ChickenManager[] m_Chickens;
+
         
         private int m_RoundNumber;                  // Which round the game is currently on.
         private WaitForSeconds m_StartWait;         // Used to have a delay whilst the round starts.
@@ -48,6 +50,15 @@ namespace Complete
                 m_Tanks[i].m_PlayerNumber = i + 1;
                 m_Tanks[i].Setup();
             }
+
+            //for (int i = 0; i < m_Chickens.Length; i++)
+            //{
+            //    // ... create them, set their player number and references needed for control.
+            //    //m_Tanks[i].m_Instance =
+            //    //    Instantiate(m_TankPrefab, m_Tanks[i].m_SpawnPoint.position, m_Tanks[i].m_SpawnPoint.rotation) as GameObject;
+            //    //m_Tanks[i].m_PlayerNumber = i + 1;
+            //    m_Chickens[i].Setup();
+            //}
         }
 
 
@@ -230,6 +241,11 @@ namespace Complete
             {
                 m_Tanks[i].Reset();
             }
+
+            //for (int i = 0; i < m_Chickens.Length; i++)
+            //{
+            //    m_Chickens[i].Reset();
+            //}
         }
 
 
@@ -239,6 +255,11 @@ namespace Complete
             {
                 m_Tanks[i].EnableControl();
             }
+
+            //for (int i = 0; i < m_Chickens.Length; i++)
+            //{
+            //    m_Chickens[i].EnableControl();
+            //}
         }
 
 
@@ -248,6 +269,11 @@ namespace Complete
             {
                 m_Tanks[i].DisableControl();
             }
+
+            //for (int i = 0; i < m_Chickens.Length; i++)
+            //{
+            //    m_Chickens[i].DisableControl();
+            //}
         }
     }
 }
