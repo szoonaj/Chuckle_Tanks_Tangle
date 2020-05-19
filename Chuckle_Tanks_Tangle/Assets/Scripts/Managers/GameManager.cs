@@ -13,10 +13,10 @@ namespace Complete
         public CameraControl m_CameraControl;       // Reference to the CameraControl script for control during different phases.
         public Text m_MessageText;                  // Reference to the overlay Text to display winning text, etc.
         public GameObject m_TankPrefab;             // Reference to the prefab the players will control.
+        public GameObject m_ChickenPrefab;
+
         public TankManager[] m_Tanks;               // A collection of managers for enabling and disabling different aspects of the tanks.
-
-        //public ChickenManager[] m_Chickens;
-
+        public ChickenManager[] m_Chickens;
         
         private int m_RoundNumber;                  // Which round the game is currently on.
         private WaitForSeconds m_StartWait;         // Used to have a delay whilst the round starts.
@@ -33,9 +33,10 @@ namespace Complete
 
             SpawnAllTanks();
             SetCameraTargets();
+            SpawnChicken();
 
             // Start the game.
-            StartCoroutine (GameLoop ());
+            StartCoroutine(GameLoop ());
         }
 
 
@@ -61,6 +62,14 @@ namespace Complete
             //}
         }
 
+        private void SpawnChicken()
+        {            
+                // ... create them, set their player number and references needed for control.
+                m_Chickens[0].m_Instance =
+                    Instantiate(m_ChickenPrefab, m_Chickens[0].m_SpawnPoint.position, m_Chickens[0].m_SpawnPoint.rotation) as GameObject;
+                m_Chickens[0].Setup();
+            
+        }
 
         private void SetCameraTargets()
         {
@@ -242,10 +251,7 @@ namespace Complete
                 m_Tanks[i].Reset();
             }
 
-            //for (int i = 0; i < m_Chickens.Length; i++)
-            //{
-            //    m_Chickens[i].Reset();
-            //}
+            //m_Chickens[0].Reset();
         }
 
 
@@ -256,10 +262,7 @@ namespace Complete
                 m_Tanks[i].EnableControl();
             }
 
-            //for (int i = 0; i < m_Chickens.Length; i++)
-            //{
-            //    m_Chickens[i].EnableControl();
-            //}
+           //m_Chickens[0].EnableControl();
         }
 
 
@@ -270,10 +273,9 @@ namespace Complete
                 m_Tanks[i].DisableControl();
             }
 
-            //for (int i = 0; i < m_Chickens.Length; i++)
-            //{
-            //    m_Chickens[i].DisableControl();
-            //}
+            
+            //m_Chickens[0].DisableControl();
+            
         }
     }
 }
