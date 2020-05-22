@@ -74,6 +74,9 @@ namespace Complete
             m_ExplosionAudio.Play();
 
             gameObject.SetActive(false);
+
+            // po zginieciu zostawia wybuchowe jajko
+
             //Destroy(gameObject);
         }
     }

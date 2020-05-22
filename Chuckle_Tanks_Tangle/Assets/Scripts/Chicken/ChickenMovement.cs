@@ -13,15 +13,17 @@ namespace Complete
         private NavMeshAgent agent;
         private Vector3 destination;
 
+        private GameObject altTarget;
+
         private float rangeAttack = 25f;
 
-        private enum State
-        {
-            Idle,
-            Move,
-        }
+        //private enum State
+        //{
+        //    Idle,
+        //    Move,
+        //}
 
-        private State state = State.Idle;
+        //private State state = State.Idle;
         //private bool attackRunning = false;
 
 
@@ -32,6 +34,7 @@ namespace Complete
 
             tankMovement = GetComponent<TankMovement>();
 
+            altTarget = GameObject.FindWithTag("AltTarget");
             //if (target == null)
             //{
             //    target = FindObjectOfType<TankMovement>().transform;
@@ -117,18 +120,39 @@ namespace Complete
         }
         */
 
-        // szybka wersja xd
         private void UpdateState()
         {
+            animator.SetFloat("Speed", agent.velocity.magnitude);
+
             if (target != null && IsTargetVisible())
             {
                 agent.isStopped = false;
+                //animator.SetBool("IsVisible", true);
+                //animator.SetFloat("Speed", 1f);
+                //animator.SetFloat("Speed", agent.velocity.magnitude);
+                //agent.speed = 3.5f;
+
                 Move(target.position);
+                
+
             }
             else if (target != null && !IsTargetVisible())
             {
-                agent.isStopped = true;
+                //agent.isStopped = true;
+                //animator.SetBool("IsVisible", false);
+                //animator.SetFloat("Speed", 0f);
+                //agent.velocity = Vector3.zero;
+
+                Move(altTarget.transform.position);
+                if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                {
+                    agent.velocity = Vector3.zero;
+                    agent.isStopped = true;
+                    animator.SetFloat("Speed", 0f);
+                }
+                //animator.SetFloat("Speed", agent.velocity.magnitude);
             }
+            
         }
 
         private GameObject FindClosestEnemy()

@@ -56,13 +56,11 @@ namespace Complete
                   //  continue;
 
                 // Calculate the amount of damage the target should take based on it's distance from the shell.
-               // float damage_tank = CalculateDamage (targetRigidbody_tank.position);
-               // float damage_chicken = CalculateDamage(targetRigidbody_chicken.position);
+               
 
                 float damage = CalculateDamage(targetRigidbody.position);
 
                 // Deal this damage to the tank.
-                // na pewno musza byc dwa osobne bo sa 2 skrypty
                 if (targetHealth)
                     targetHealth.TakeDamage (damage);
                 else if (chickenHealth)
