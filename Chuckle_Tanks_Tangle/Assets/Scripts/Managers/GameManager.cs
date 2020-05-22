@@ -251,7 +251,7 @@ namespace Complete
                 m_Tanks[i].Reset();
             }
 
-            //m_Chickens[0].Reset();
+            m_Chickens[0].Reset();
         }
 
 

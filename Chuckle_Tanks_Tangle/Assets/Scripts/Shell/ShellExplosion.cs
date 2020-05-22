@@ -29,32 +29,44 @@ namespace Complete
             for (int i = 0; i < colliders.Length; i++)
             {
                 // ... and find their rigidbody.
-                Rigidbody targetRigidbody = colliders[i].GetComponent<Rigidbody> ();
+                //Rigidbody targetRigidbody_tank = colliders[i].GetComponent<Rigidbody> ();
+                //Rigidbody targetRigidbody_chicken = colliders[i].GetComponent<Rigidbody>();
+
+                Rigidbody targetRigidbody = colliders[i].GetComponent<Rigidbody>();
 
                 // If they don't have a rigidbody, go on to the next collider.
                 if (!targetRigidbody)
                     continue;
 
                 // Add an explosion force.
-                targetRigidbody.AddExplosionForce (m_ExplosionForce, transform.position, m_ExplosionRadius);
+                // targetRigidbody_tank.AddExplosionForce (m_ExplosionForce, transform.position, m_ExplosionRadius);
+                // targetRigidbody_chicken.AddExplosionForce(m_ExplosionForce, transform.position, m_ExplosionRadius);
+
+                targetRigidbody.AddExplosionForce(m_ExplosionForce, transform.position, m_ExplosionRadius);
 
                 // Find the TankHealth script associated with the rigidbody.
                 TankHealth targetHealth = targetRigidbody.GetComponent<TankHealth> ();
 
-                //ChickenHealth chickenHealth = targetRigidbody.GetComponent<ChickenHealth>();
+                ChickenHealth chickenHealth = targetRigidbody.GetComponent<ChickenHealth>();
 
                 // If there is no TankHealth script attached to the gameobject, go on to the next collider.
-               // if (!targetHealth || !chickenHealth)
-                //    continue;
-                if (!targetHealth)
+                if (!(targetHealth || chickenHealth))
                     continue;
+                //if (!chickenHealth)
+                  //  continue;
 
                 // Calculate the amount of damage the target should take based on it's distance from the shell.
-                float damage = CalculateDamage (targetRigidbody.position);
+               // float damage_tank = CalculateDamage (targetRigidbody_tank.position);
+               // float damage_chicken = CalculateDamage(targetRigidbody_chicken.position);
+
+                float damage = CalculateDamage(targetRigidbody.position);
 
                 // Deal this damage to the tank.
-                targetHealth.TakeDamage (damage);
-               // chickenHealth.TakeDamage(damage);
+                // na pewno musza byc dwa osobne bo sa 2 skrypty
+                if (targetHealth)
+                    targetHealth.TakeDamage (damage);
+                else if (chickenHealth)
+                    chickenHealth.TakeDamage(damage);
             }
 
             // Unparent the particles from the shell.

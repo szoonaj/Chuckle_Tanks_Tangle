@@ -74,7 +74,7 @@ namespace Complete
             m_ExplosionAudio.Play();
 
             gameObject.SetActive(false);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }
