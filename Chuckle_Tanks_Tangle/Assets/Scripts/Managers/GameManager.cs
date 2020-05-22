@@ -262,7 +262,7 @@ namespace Complete
                 m_Tanks[i].EnableControl();
             }
 
-           //m_Chickens[0].EnableControl();
+           m_Chickens[0].EnableControl();
         }
 
 
@@ -274,7 +274,7 @@ namespace Complete
             }
 
             
-            //m_Chickens[0].DisableControl();
+            m_Chickens[0].DisableControl();
             
         }
     }
