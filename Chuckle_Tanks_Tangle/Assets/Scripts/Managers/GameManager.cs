@@ -17,6 +17,8 @@ namespace Complete
 
         public TankManager[] m_Tanks;               // A collection of managers for enabling and disabling different aspects of the tanks.
         public ChickenManager[] m_Chickens;
+
+        
         
         private int m_RoundNumber;                  // Which round the game is currently on.
         private WaitForSeconds m_StartWait;         // Used to have a delay whilst the round starts.
@@ -31,10 +33,12 @@ namespace Complete
             m_StartWait = new WaitForSeconds (m_StartDelay);
             m_EndWait = new WaitForSeconds (m_EndDelay);
 
+            DrawChickenSpawnPoints();
+
             SpawnAllTanks();
             SetCameraTargets();
-            SpawnChicken();
-
+            //SpawnChicken();
+            SpawnAllChickens();
             // Start the game.
             StartCoroutine(GameLoop ());
         }
@@ -51,15 +55,6 @@ namespace Complete
                 m_Tanks[i].m_PlayerNumber = i + 1;
                 m_Tanks[i].Setup();
             }
-
-            //for (int i = 0; i < m_Chickens.Length; i++)
-            //{
-            //    // ... create them, set their player number and references needed for control.
-            //    //m_Tanks[i].m_Instance =
-            //    //    Instantiate(m_TankPrefab, m_Tanks[i].m_SpawnPoint.position, m_Tanks[i].m_SpawnPoint.rotation) as GameObject;
-            //    //m_Tanks[i].m_PlayerNumber = i + 1;
-            //    m_Chickens[i].Setup();
-            //}
         }
 
         private void SpawnChicken()
@@ -68,7 +63,41 @@ namespace Complete
                 m_Chickens[0].m_Instance =
                     Instantiate(m_ChickenPrefab, m_Chickens[0].m_SpawnPoint.position, m_Chickens[0].m_SpawnPoint.rotation) as GameObject;
                 m_Chickens[0].Setup();
-            
+        }
+
+        private void SpawnAllChickens()
+        {
+            // ... create them, set their player number and references needed for control.
+            for (int i = 0; i < m_Chickens.Length; i++)
+            {
+                // ... create them, set their player number and references needed for control.
+                m_Chickens[i].m_Instance =
+                    Instantiate(m_ChickenPrefab, m_Chickens[i].m_SpawnPoint.position, m_Chickens[i].m_SpawnPoint.rotation) as GameObject;
+                m_Chickens[i].Setup();
+            }
+        }
+
+        private void DrawChickenSpawnPoints()
+        {
+            for (int i = 0; i < m_Chickens.Length; i++)
+            {
+                GameObject spawnObj;
+                //set custom range for random position
+                float MinX = -30f;
+                float MaxX = -15f;
+                float MinY = 0f;
+                float MaxY = 0f;
+                float MinZ = -5f;
+                float MaxZ = 20f;
+
+                float x = Random.Range(MinX, MaxX);
+                float y = Random.Range(MinY, MaxY);
+                float z = Random.Range(MinZ, MaxZ);
+
+                m_Chickens[i].m_SpawnPoint.position = new Vector3(x, y, z);                
+            }
+
+            //Instantiate(spawnObj, new Vector3(x, y, z), Quaternion.identity) as GameObject;
         }
 
         private void SetCameraTargets()
@@ -249,9 +278,10 @@ namespace Complete
             for (int i = 0; i < m_Tanks.Length; i++)
             {
                 m_Tanks[i].Reset();
+                m_Chickens[i].Reset();
             }
 
-            m_Chickens[0].Reset();
+            //m_Chickens[0].Reset();
         }
 
 
@@ -260,9 +290,10 @@ namespace Complete
             for (int i = 0; i < m_Tanks.Length; i++)
             {
                 m_Tanks[i].EnableControl();
+                m_Chickens[i].EnableControl();
             }
 
-           m_Chickens[0].EnableControl();
+           //m_Chickens[0].EnableControl();
         }
 
 
@@ -271,10 +302,11 @@ namespace Complete
             for (int i = 0; i < m_Tanks.Length; i++)
             {
                 m_Tanks[i].DisableControl();
+                m_Chickens[i].DisableControl();
             }
 
             
-            m_Chickens[0].DisableControl();
+            //m_Chickens[0].DisableControl();
             
         }
     }

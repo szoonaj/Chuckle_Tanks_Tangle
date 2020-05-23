@@ -13,7 +13,7 @@ namespace Complete
         private NavMeshAgent agent;
         private Vector3 destination;
 
-        private GameObject altTarget;
+        //private GameObject altTarget;
 
         private float rangeAttack = 25f;
 
@@ -34,7 +34,7 @@ namespace Complete
 
             tankMovement = GetComponent<TankMovement>();
 
-            altTarget = GameObject.FindWithTag("AltTarget");
+           // altTarget = GameObject.FindWithTag("AltTarget");
             //if (target == null)
             //{
             //    target = FindObjectOfType<TankMovement>().transform;
@@ -132,8 +132,7 @@ namespace Complete
                 //animator.SetFloat("Speed", agent.velocity.magnitude);
                 //agent.speed = 3.5f;
 
-                Move(target.position);
-                
+                Move(target.position);                
 
             }
             else if (target != null && !IsTargetVisible())
@@ -143,13 +142,17 @@ namespace Complete
                 //animator.SetFloat("Speed", 0f);
                 //agent.velocity = Vector3.zero;
 
-                Move(altTarget.transform.position);
-                if (!agent.pathPending && agent.remainingDistance < 0.5f)
-                {
-                    agent.velocity = Vector3.zero;
-                    agent.isStopped = true;
-                    animator.SetFloat("Speed", 0f);
-                }
+                agent.velocity = Vector3.zero;
+                agent.isStopped = true;
+                animator.SetFloat("Speed", 0f);
+
+                //Move(altTarget.transform.position);
+                //if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                //{
+                //    agent.velocity = Vector3.zero;
+                //    agent.isStopped = true;
+                //    animator.SetFloat("Speed", 0f);
+                //}
                 //animator.SetFloat("Speed", agent.velocity.magnitude);
             }
             
