@@ -84,11 +84,11 @@ namespace Complete
                 GameObject spawnObj;
                 //set custom range for random position
                 float MinX = -30f;
-                float MaxX = -15f;
+                float MaxX = 30f;
                 float MinY = 0f;
                 float MaxY = 0f;
-                float MinZ = -5f;
-                float MaxZ = 20f;
+                float MinZ = -30f;
+                float MaxZ = 30f;
 
                 float x = Random.Range(MinX, MaxX);
                 float y = Random.Range(MinY, MaxY);
@@ -144,6 +144,7 @@ namespace Complete
 
         private IEnumerator RoundStarting ()
         {
+            DrawChickenSpawnPoints();
             ResetAllTanks ();
             DisableTankControl ();
 
