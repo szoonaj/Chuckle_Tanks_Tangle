@@ -13,6 +13,7 @@ namespace Complete
         private NavMeshAgent agent;
         private Vector3 destination;
 
+        //public GameObject eggPrefab;
         //private GameObject altTarget;
 
         private float rangeAttack = 25f;
