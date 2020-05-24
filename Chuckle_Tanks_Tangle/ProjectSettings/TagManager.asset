@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TankTarget
   - AltTarget
+  - Egg
   layers:
   - Default
   - TransparentFX

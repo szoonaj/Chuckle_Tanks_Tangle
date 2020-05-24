@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4969242100495853385}
   m_Layer: 0
   m_Name: Egg
-  m_TagString: Untagged
+  m_TagString: Egg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,3 +144,5 @@ MonoBehaviour:
   m_ExplosionForce: 500
   m_ExplosionRadius: 5
   m_ExplosionPrefab: {fileID: 195792, guid: b4da9ffcfc30aa24b94f59b78e149ccc, type: 3}
+  m_ExplosionAudio: {fileID: -7072668062726636435, guid: b4da9ffcfc30aa24b94f59b78e149ccc,
+    type: 3}

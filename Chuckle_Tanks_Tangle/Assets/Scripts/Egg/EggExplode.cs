@@ -13,7 +13,7 @@ namespace Complete
         //public GameObject m_eggPrefab;
 
         public GameObject m_ExplosionPrefab;
-        private AudioSource m_ExplosionAudio;               // The audio source to play when the tank explodes.
+        public AudioSource m_ExplosionAudio;               // The audio source to play when the tank explodes.
         private ParticleSystem m_ExplosionParticles;        // The particle system the will play when the tank is destroyed.
 
         //private void Awake()

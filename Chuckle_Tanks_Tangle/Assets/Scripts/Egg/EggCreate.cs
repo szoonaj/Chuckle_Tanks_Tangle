@@ -41,7 +41,7 @@ namespace Complete
             egg = Instantiate(m_eggPrefab, new Vector3(chickenMovement.transform.position.x - chickenMovement.transform.forward.x * 3.5f, 2f, chickenMovement.transform.position.z - chickenMovement.transform.forward.z * 3.5f), chickenMovement.transform.rotation) as GameObject;
             egg.SetActive(true);
             //clone = Instantiate(m_eggPrefab, chickenMovement.transform.position, chickenMovement.transform.rotation);
-            Debug.Log("egg created");
+            //Debug.Log("egg created");
             //yield return null;
         }
     }

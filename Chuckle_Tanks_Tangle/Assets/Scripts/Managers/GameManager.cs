@@ -19,7 +19,6 @@ namespace Complete
         public ChickenManager[] m_Chickens;
 
         
-        
         private int m_RoundNumber;                  // Which round the game is currently on.
         private WaitForSeconds m_StartWait;         // Used to have a delay whilst the round starts.
         private WaitForSeconds m_EndWait;           // Used to have a delay whilst the round or game ends.
@@ -40,7 +39,7 @@ namespace Complete
             SpawnAllTanks();
             SetCameraTargets();
             //SpawnChicken();
-            SpawnAllChickens();
+            //SpawnAllChickens();
             // Start the game.
             StartCoroutine(GameLoop ());
         }
@@ -178,10 +177,13 @@ namespace Complete
 
         private IEnumerator RoundStarting ()
         {
-            
             DrawChickenSpawnPoints();
-            ResetAllTanks ();
+            SpawnAllChickens();
+            ResetAllTanks();
+            //ResetAllChickens();
+            //DestroyAllChickens();
             DisableTankControl ();
+            DisableChickenControl();
 
             // Snap the camera's zoom and position to something appropriate for the reset tanks.
             m_CameraControl.SetStartPositionAndSize ();
@@ -197,6 +199,7 @@ namespace Complete
         private IEnumerator RoundPlaying ()
         {
             EnableTankControl ();
+            EnableChickenControl();
 
             m_MessageText.text = string.Empty;
 
@@ -212,7 +215,9 @@ namespace Complete
         private IEnumerator RoundEnding ()
         {
             DisableTankControl ();
-
+            //DisableChickenControl();
+            DestroyAllChickens();
+            DestroyEggs();
             // Clear the winner from the previous round.
             m_RoundWinner = null;
 
@@ -314,6 +319,15 @@ namespace Complete
             for (int i = 0; i < m_Tanks.Length; i++)
             {
                 m_Tanks[i].Reset();
+            }
+
+            //m_Chickens[0].Reset();
+        }
+
+        private void ResetAllChickens()
+        {
+            for (int i = 0; i < m_Chickens.Length; i++)
+            {
                 m_Chickens[i].Reset();
             }
 
@@ -321,15 +335,25 @@ namespace Complete
         }
 
 
+
         private void EnableTankControl()
         {
             for (int i = 0; i < m_Tanks.Length; i++)
             {
                 m_Tanks[i].EnableControl();
-                m_Chickens[i].EnableControl();
             }
 
            //m_Chickens[0].EnableControl();
+        }
+
+        private void EnableChickenControl()
+        {
+            for (int i = 0; i < m_Chickens.Length; i++)
+            {
+                m_Chickens[i].EnableControl();
+            }
+
+            //m_Chickens[0].EnableControl();
         }
 
 
@@ -338,12 +362,49 @@ namespace Complete
             for (int i = 0; i < m_Tanks.Length; i++)
             {
                 m_Tanks[i].DisableControl();
-                m_Chickens[i].DisableControl();
             }
 
             
             //m_Chickens[0].DisableControl();
             
+        }
+
+        private void DisableChickenControl()
+        {
+            for (int i = 0; i < m_Chickens.Length; i++)
+            {
+                m_Chickens[i].DisableControl();
+            }
+
+
+            //m_Chickens[0].DisableControl();
+
+        }
+
+        private void DestroyAllChickens()
+        {
+            
+            for (int i = 0; i < m_Chickens.Length; i++)
+            {
+                if (m_Chickens[i] != null)
+                {
+                    Destroy(m_Chickens[i].m_Instance);
+                }
+            }
+        }
+
+        private void DestroyEggs()
+        {
+            GameObject[] eggs;
+            eggs = GameObject.FindGameObjectsWithTag("Egg");
+
+            for (int i = 0; i < eggs.Length; i++)
+            {
+                if (eggs[i] != null)
+                {
+                    Destroy(eggs[i]);
+                }
+            }
         }
     }
 }
