@@ -75,9 +75,7 @@ namespace Complete
 
             gameObject.SetActive(false);
 
-            // po zginieciu zostawia wybuchowe jajko
-
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }

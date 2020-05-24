@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 33000013566220422}
   - component: {fileID: 23000011875077590}
   - component: {fileID: 623019842614229480}
-  - component: {fileID: 259797302355342522}
   - component: {fileID: 3399883592915690572}
+  - component: {fileID: -4224603757817568857}
+  - component: {fileID: 4969242100495853385}
   m_Layer: 0
   m_Name: Egg
   m_TagString: Untagged
@@ -98,19 +99,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &259797302355342522
-MonoBehaviour:
+--- !u!65 &3399883592915690572
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000012343480272}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a86f8ac925823e7409f7ce0ed9d4d8eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &3399883592915690572
+  serializedVersion: 2
+  m_Size: {x: 0.15274109, y: 0.026138742, z: 0.103578866}
+  m_Center: {x: 0, y: -0.000000005122274, z: 0.0000000037252903}
+--- !u!65 &-4224603757817568857
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,3 +125,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.15274109, y: 0.026138742, z: 0.103578866}
   m_Center: {x: 0, y: -0.000000005122274, z: 0.0000000037252903}
+--- !u!114 &4969242100495853385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012343480272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a86f8ac925823e7409f7ce0ed9d4d8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TankMask:
+    serializedVersion: 2
+    m_Bits: 512
+  m_MaxDamage: 30
+  m_ExplosionForce: 500
+  m_ExplosionRadius: 5
+  m_ExplosionPrefab: {fileID: 195792, guid: b4da9ffcfc30aa24b94f59b78e149ccc, type: 3}
