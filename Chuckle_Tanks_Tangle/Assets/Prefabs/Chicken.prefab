@@ -407,6 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  rangeAttack: 25
 --- !u!195 &139503312
 NavMeshAgent:
   m_ObjectHideFlags: 0

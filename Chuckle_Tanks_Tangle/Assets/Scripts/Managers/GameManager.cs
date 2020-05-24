@@ -33,8 +33,10 @@ namespace Complete
             m_StartWait = new WaitForSeconds (m_StartDelay);
             m_EndWait = new WaitForSeconds (m_EndDelay);
 
-            DrawChickenSpawnPoints();
+            //SceneManager.LoadScene("Level1");
 
+            DrawChickenSpawnPoints();
+            //DrawChickenAgentPriority();
             SpawnAllTanks();
             SetCameraTargets();
             //SpawnChicken();
@@ -81,7 +83,6 @@ namespace Complete
         {
             for (int i = 0; i < m_Chickens.Length; i++)
             {
-                GameObject spawnObj;
                 //set custom range for random position
                 float MinX = -30f;
                 float MaxX = 30f;
@@ -99,7 +100,19 @@ namespace Complete
 
             //Instantiate(spawnObj, new Vector3(x, y, z), Quaternion.identity) as GameObject;
         }
+        // nie dziala
+        /*
+        private void DrawChickenAgentPriority()
+        {
+            for (int i = 0; i < m_Chickens.Length; i++)
+            {
+                int priority = 50;
+                priority = (int)Random.Range(0, 99);
 
+                m_Chickens[i].m_Movement.agent.avoidancePriority = priority;
+            }  
+        }
+        */
         private void SetCameraTargets()
         {
             // Create a collection of transforms the same size as the number of tanks.
@@ -118,6 +131,7 @@ namespace Complete
 
         private IEnumerator GameLoop ()
         {
+            
             // Start off by running the 'RoundStarting' coroutine but don't return until it's finished.
             yield return StartCoroutine (RoundStarting ());
 
@@ -127,16 +141,36 @@ namespace Complete
             // Once execution has returned here, run the 'RoundEnding' coroutine, again don't return until it's finished.
             yield return StartCoroutine (RoundEnding());
 
+            //SceneManager.LoadScene("Level2");
+
             // This code is not run until 'RoundEnding' has finished.  At which point, check if a game winner has been found.
             if (m_GameWinner != null)
             {
                 // If there is a game winner, restart the level.
-                SceneManager.LoadScene (0);
+                SceneManager.LoadScene ("Level1");
             }
             else
             {
                 // If there isn't a winner yet, restart this coroutine so the loop continues.
                 // Note that this coroutine doesn't yield.  This means that the current version of the GameLoop will end.
+                //if (sceneNumber % 3 == 1)
+                //{
+                //    SceneManager.LoadScene("Level1");
+                //    sceneNumber++;
+                //}
+                    
+
+                //else if (sceneNumber % 3 == 2)
+                //{
+                //    SceneManager.LoadScene("Level2");
+                //    sceneNumber++;
+                //}
+                //else
+                //{
+                //    SceneManager.LoadScene("Level3");
+                //    sceneNumber++;
+                //}
+
                 StartCoroutine (GameLoop ());
             }
         }
@@ -144,6 +178,7 @@ namespace Complete
 
         private IEnumerator RoundStarting ()
         {
+            
             DrawChickenSpawnPoints();
             ResetAllTanks ();
             DisableTankControl ();

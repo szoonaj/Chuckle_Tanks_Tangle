@@ -16,7 +16,7 @@ namespace Complete
         //public GameObject eggPrefab;
         //private GameObject altTarget;
 
-        private float rangeAttack = 25f;
+        public float rangeAttack = 25f;
 
         //private enum State
         //{
@@ -34,7 +34,7 @@ namespace Complete
             animator = GetComponent<Animator>();
 
             tankMovement = GetComponent<TankMovement>();
-
+            //agent.
            // altTarget = GameObject.FindWithTag("AltTarget");
             //if (target == null)
             //{

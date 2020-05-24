@@ -697,10 +697,13 @@ MonoBehaviour:
   m_Chickens:
   - m_SpawnPoint: {fileID: 1119620640}
     m_Instance: {fileID: 0}
+    m_Movement: {fileID: 139503311, guid: 312b31977ed9b2d48a14849ebb8c7fb3, type: 3}
   - m_SpawnPoint: {fileID: 94272972}
     m_Instance: {fileID: 0}
-  - m_SpawnPoint: {fileID: 374153677}
+    m_Movement: {fileID: 139503311, guid: 312b31977ed9b2d48a14849ebb8c7fb3, type: 3}
+  - m_SpawnPoint: {fileID: 94272972}
     m_Instance: {fileID: 0}
+    m_Movement: {fileID: 139503311, guid: 312b31977ed9b2d48a14849ebb8c7fb3, type: 3}
 --- !u!4 &1304999366
 Transform:
   m_ObjectHideFlags: 0
