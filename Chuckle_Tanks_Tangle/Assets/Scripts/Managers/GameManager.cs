@@ -32,7 +32,7 @@ namespace Complete
             m_StartWait = new WaitForSeconds (m_StartDelay);
             m_EndWait = new WaitForSeconds (m_EndDelay);
 
-            //SceneManager.LoadScene("Level1");
+            //SceneManager.LoadScene("Menu");
 
             DrawChickenSpawnPoints();
             //DrawChickenAgentPriority();
@@ -146,7 +146,7 @@ namespace Complete
             if (m_GameWinner != null)
             {
                 // If there is a game winner, restart the level.
-                SceneManager.LoadScene ("Level1");
+                SceneManager.LoadScene ("GameOver");
             }
             else
             {

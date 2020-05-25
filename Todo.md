@@ -1,4 +1,3 @@
-- Repair bugs (after deleting chicken and after player), (approaching chickens)
-- Differentiate levels
+- Repair bug - approaching chickens
+- Improve levels
 - Change music and sound effects
-- Menu and Gameover

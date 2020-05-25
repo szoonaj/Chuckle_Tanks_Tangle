@@ -140,7 +140,7 @@ MonoBehaviour:
   m_TankMask:
     serializedVersion: 2
     m_Bits: 512
-  m_MaxDamage: 30
+  m_Damage: 25
   m_ExplosionForce: 500
   m_ExplosionRadius: 5
   m_ExplosionPrefab: {fileID: 195792, guid: b4da9ffcfc30aa24b94f59b78e149ccc, type: 3}

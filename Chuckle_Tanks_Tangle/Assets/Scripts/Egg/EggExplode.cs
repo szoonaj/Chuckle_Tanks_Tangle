@@ -7,7 +7,7 @@ namespace Complete
         public LayerMask m_TankMask;                        // Used to filter what the explosion affects, this should be set to "Players".
         //public ParticleSystem m_ExplosionParticles;         // Reference to the particles that will play on explosion.
         //public AudioSource m_ExplosionAudio;                // Reference to the audio that will play on explosion.
-        public float m_MaxDamage = 100f;                    // The amount of damage done if the explosion is centred on a tank.
+        public float m_Damage = 100f;                    // The amount of damage done if the explosion is centred on a tank.
         public float m_ExplosionForce = 1000f;              // The amount of force added to a tank at the centre of the explosion.
         public float m_ExplosionRadius = 5f;                // The maximum distance away from the explosion tanks can be and are still affected.
         //public GameObject m_eggPrefab;
@@ -70,7 +70,7 @@ namespace Complete
 
 
                 // Deal this damage to the tank.
-                targetHealth.TakeDamage(m_MaxDamage);
+                targetHealth.TakeDamage(m_Damage);
 
                 m_ExplosionParticles.transform.position = transform.position;
                 m_ExplosionParticles.gameObject.SetActive(true);
