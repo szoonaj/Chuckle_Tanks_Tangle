@@ -7,11 +7,12 @@ namespace Complete
     public class FoodManager : MonoBehaviour
     {
 
+        public float m_timeInterval = 0.5f;
         public GameObject m_foodPrefab;
         // Start is called before the first frame update
         void Start()
         {
-            InvokeRepeating("CreateFood", 1f, 0.5f);
+            InvokeRepeating("CreateFood", 1f, m_timeInterval);
         }
 
         // Update is called once per frame
@@ -23,12 +24,12 @@ namespace Complete
         private Vector3 DrawFoodSpawnPoints()
         {
             //set custom range for random position
-            float MinX = -60f;
-            float MaxX = 60f;
+            float MinX = -50f;
+            float MaxX = 50f;
             float MinY = 20f;
             float MaxY = 60f;
-            float MinZ = -60f;
-            float MaxZ = 60f;
+            float MinZ = -50f;
+            float MaxZ = 50f;
 
             float x = Random.Range(MinX, MaxX);
             float y = Random.Range(MinY, MaxY);

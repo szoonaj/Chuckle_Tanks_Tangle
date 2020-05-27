@@ -83,12 +83,12 @@ namespace Complete
             for (int i = 0; i < m_Chickens.Length; i++)
             {
                 //set custom range for random position
-                float MinX = -30f;
-                float MaxX = 30f;
+                float MinX = -20f;
+                float MaxX = 20f;
                 float MinY = 0f;
                 float MaxY = 0f;
-                float MinZ = -30f;
-                float MaxZ = 30f;
+                float MinZ = -20f;
+                float MaxZ = 20f;
 
                 float x = Random.Range(MinX, MaxX);
                 float y = Random.Range(MinY, MaxY);
@@ -218,6 +218,7 @@ namespace Complete
             //DisableChickenControl();
             DestroyAllChickens();
             DestroyEggs();
+            DestroyFood();
             // Clear the winner from the previous round.
             m_RoundWinner = null;
 
@@ -403,6 +404,20 @@ namespace Complete
                 if (eggs[i] != null)
                 {
                     Destroy(eggs[i]);
+                }
+            }
+        }
+
+        private void DestroyFood()
+        {
+            GameObject[] food;
+            food = GameObject.FindGameObjectsWithTag("Food");
+
+            for (int i = 0; i < food.Length; i++)
+            {
+                if (food[i] != null)
+                {
+                    Destroy(food[i]);
                 }
             }
         }

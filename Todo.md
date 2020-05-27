@@ -1,3 +1,2 @@
-- Repair bug - approaching chickens
-- Improve levels
-- Change music and sound effects
+- Audio
+- Parameters optimization

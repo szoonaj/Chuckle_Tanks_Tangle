@@ -407,7 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  rangeAttack: 20
+  rangeAttack: 40
 --- !u!195 &139503312
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -417,7 +417,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1311290861401530}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 0.3
   m_Speed: 6
   m_Acceleration: 4
   avoidancePriority: 50
