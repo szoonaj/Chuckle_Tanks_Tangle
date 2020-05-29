@@ -14,6 +14,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &-4490872642023660937
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Chicken
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 99d71ac8f1cbebf49a92aec62709c658
+  m_Children: []
+  m_Volume: 2ad3a31f1ce509e4bbfbedfc3fb29237
+  m_Pitch: dc4bc1f433bc11348bd166c20447c047
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -3088704476412477520}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &-4457367616991161519
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -33,6 +52,20 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &-3088704476412477520
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: aff14148e60859149a92ec4f5832270d
+  m_EffectName: Attenuation
+  m_MixLevel: 6e65f7e40acd21546a0f3969d0453c44
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-482958279075791407
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -75,6 +108,7 @@ AudioMixerController:
     - a0545ff1251367e4785fa47793f9910c
     - 39c3aa7e59e87444f9bcc3fc9f7a3a41
     - a1cdddc3b6e1a8a44a3ec9aefa3bf053
+    - 99d71ac8f1cbebf49a92aec62709c658
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -91,6 +125,7 @@ AudioMixerGroupController:
   - {fileID: 3561869629604717227}
   - {fileID: -482958279075791407}
   - {fileID: -4457367616991161519}
+  - {fileID: -4490872642023660937}
   m_Volume: c4931ba5b6cbbad4c8b942eb8b535302
   m_Pitch: 7bc3a84c37982a140af9aad7a76d3d85
   m_Send: 00000000000000000000000000000000
@@ -124,11 +159,13 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 1b0e25a3e890d334b910a37c0f06efba
   m_FloatValues:
+    c9d3ca20a63d281418d6370e04f623d2: -3
     0b853227dd532c24ca591e7d63ac3add: 0
-    ad91a46a89f71f742a685d49c715fa2d: -24.900742
+    ad91a46a89f71f742a685d49c715fa2d: -15.421314
     2c7024eae51d7f34cbe241cfe4cba887: 0
     b2b130ebe6bcb514da3a5577d7bb49e1: -45
-    5dfcd62d087af3b48ae4a1ec78432cef: -11.944499
+    5dfcd62d087af3b48ae4a1ec78432cef: -6.5566154
+    2ad3a31f1ce509e4bbfbedfc3fb29237: -27.16953
     c576f39ffe3bf8a42bd028ad13747b5f: 2.5
   m_TransitionOverrides: {}
 --- !u!244 &17061018212088151

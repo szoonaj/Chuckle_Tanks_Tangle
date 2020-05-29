@@ -13,20 +13,7 @@ namespace Complete
         private NavMeshAgent agent;
         private Vector3 destination;
 
-        //public GameObject eggPrefab;
-        //private GameObject altTarget;
-
         public float rangeAttack = 25f;
-
-        //private enum State
-        //{
-        //    Idle,
-        //    Move,
-        //}
-
-        //private State state = State.Idle;
-        //private bool attackRunning = false;
-
 
         private void Start()
         {
@@ -34,35 +21,12 @@ namespace Complete
             animator = GetComponent<Animator>();
 
             tankMovement = GetComponent<TankMovement>();
-            //agent.
-           // altTarget = GameObject.FindWithTag("AltTarget");
-            //if (target == null)
-            //{
-            //    target = FindObjectOfType<TankMovement>().transform;
-            //}
-
         }
 
         private void Update()
         {
-            // animator.SetFloat("Speed", agent.velocity.magnitude);
-            //if (target == null)
-            //{
-            //    target = FindObjectOfType<TankMovement>().transform;
-            //    //return;
-            //}
-            //agent.SetDestination(destination);
-
-            //agent.destination = target.position;
-            //if (target == null)
-            //{
-            //    target = FindObjectOfType<TankMovement>().transform;
-            //}
-
-            //target = FindObjectOfType<TankMovement>().transform;
             target = FindClosestEnemy().transform;
             UpdateState();
-
         }
 
         private bool IsTargetVisible()
@@ -74,52 +38,9 @@ namespace Complete
 
         public void Move(Vector3 target)
         {
-            //TODO
             agent.isStopped = false;
             agent.SetDestination(target);
-            //NavMesh.SamplePosition
         }
-
-        // dziala tak samo, ale te Idle, Move to jest wgl niepotrzebne
-        /*
-        private void UpdateState()
-        {
-            if (state == State.Idle)
-            {
-                //TODO
-                if (IsTargetVisible())
-                {
-                    // to idz za czolgiem
-                    agent.isStopped = false;
-                    Move(target.position);
-                    state = State.Move;
-                }
-                else
-                {
-                    agent.isStopped = true;
-                    state = State.Idle;
-                }
-            }
-            else if (state == State.Move)
-            {
-                //TODO
-                if (IsTargetVisible())
-                {
-                    // to idz za czolgiem
-                    agent.isStopped = false;
-                    state = State.Move;
-                    animator.SetBool("Move", true);
-                    Move(target.position);
-                }
-
-                else
-                {
-                    agent.isStopped = true;
-                    state = State.Idle;
-                }
-            }
-        }
-        */
 
         private void UpdateState()
         {
@@ -128,33 +49,14 @@ namespace Complete
             if (target != null && IsTargetVisible())
             {
                 agent.isStopped = false;
-                //animator.SetBool("IsVisible", true);
-                //animator.SetFloat("Speed", 1f);
-                //animator.SetFloat("Speed", agent.velocity.magnitude);
-                //agent.speed = 3.5f;
-
-                Move(target.position);                
-
+                Move(target.position);
             }
             else if (target != null && !IsTargetVisible())
             {
-                //agent.isStopped = true;
-                //animator.SetBool("IsVisible", false);
-                //animator.SetFloat("Speed", 0f);
-                //agent.velocity = Vector3.zero;
-
                 agent.velocity = Vector3.zero;
                 agent.isStopped = true;
                 animator.SetFloat("Speed", 0f);
 
-                //Move(altTarget.transform.position);
-                //if (!agent.pathPending && agent.remainingDistance < 0.5f)
-                //{
-                //    agent.velocity = Vector3.zero;
-                //    agent.isStopped = true;
-                //    animator.SetFloat("Speed", 0f);
-                //}
-                //animator.SetFloat("Speed", agent.velocity.magnitude);
             }
             
         }

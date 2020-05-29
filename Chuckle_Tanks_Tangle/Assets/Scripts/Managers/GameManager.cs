@@ -32,14 +32,10 @@ namespace Complete
             m_StartWait = new WaitForSeconds (m_StartDelay);
             m_EndWait = new WaitForSeconds (m_EndDelay);
 
-            //SceneManager.LoadScene("Menu");
-
             DrawChickenSpawnPoints();
-            //DrawChickenAgentPriority();
             SpawnAllTanks();
             SetCameraTargets();
-            //SpawnChicken();
-            //SpawnAllChickens();
+            
             // Start the game.
             StartCoroutine(GameLoop ());
         }
@@ -96,22 +92,8 @@ namespace Complete
 
                 m_Chickens[i].m_SpawnPoint.position = new Vector3(x, y, z);                
             }
-
-            //Instantiate(spawnObj, new Vector3(x, y, z), Quaternion.identity) as GameObject;
         }
-        // nie dziala
-        /*
-        private void DrawChickenAgentPriority()
-        {
-            for (int i = 0; i < m_Chickens.Length; i++)
-            {
-                int priority = 50;
-                priority = (int)Random.Range(0, 99);
-
-                m_Chickens[i].m_Movement.agent.avoidancePriority = priority;
-            }  
-        }
-        */
+       
         private void SetCameraTargets()
         {
             // Create a collection of transforms the same size as the number of tanks.
@@ -150,38 +132,15 @@ namespace Complete
             }
             else
             {
-                // If there isn't a winner yet, restart this coroutine so the loop continues.
-                // Note that this coroutine doesn't yield.  This means that the current version of the GameLoop will end.
-                //if (sceneNumber % 3 == 1)
-                //{
-                //    SceneManager.LoadScene("Level1");
-                //    sceneNumber++;
-                //}
-                    
-
-                //else if (sceneNumber % 3 == 2)
-                //{
-                //    SceneManager.LoadScene("Level2");
-                //    sceneNumber++;
-                //}
-                //else
-                //{
-                //    SceneManager.LoadScene("Level3");
-                //    sceneNumber++;
-                //}
-
                 StartCoroutine (GameLoop ());
             }
         }
-
 
         private IEnumerator RoundStarting ()
         {
             DrawChickenSpawnPoints();
             SpawnAllChickens();
             ResetAllTanks();
-            //ResetAllChickens();
-            //DestroyAllChickens();
             DisableTankControl ();
             DisableChickenControl();
 
@@ -215,10 +174,10 @@ namespace Complete
         private IEnumerator RoundEnding ()
         {
             DisableTankControl ();
-            //DisableChickenControl();
             DestroyAllChickens();
             DestroyEggs();
             DestroyFood();
+
             // Clear the winner from the previous round.
             m_RoundWinner = null;
 
@@ -273,7 +232,6 @@ namespace Complete
             return null;
         }
 
-
         private TankManager GetGameWinner()
         {
             // Go through all the tanks...
@@ -287,7 +245,6 @@ namespace Complete
             // If no tanks have enough rounds to win, return null.
             return null;
         }
-
 
         // Returns a string message to display at the end of each round.
         private string EndMessage()
@@ -314,15 +271,12 @@ namespace Complete
             return message;
         }
 
-
         private void ResetAllTanks()
         {
             for (int i = 0; i < m_Tanks.Length; i++)
             {
                 m_Tanks[i].Reset();
             }
-
-            //m_Chickens[0].Reset();
         }
 
         private void ResetAllChickens()
@@ -331,11 +285,7 @@ namespace Complete
             {
                 m_Chickens[i].Reset();
             }
-
-            //m_Chickens[0].Reset();
         }
-
-
 
         private void EnableTankControl()
         {
@@ -344,7 +294,6 @@ namespace Complete
                 m_Tanks[i].EnableControl();
             }
 
-           //m_Chickens[0].EnableControl();
         }
 
         private void EnableChickenControl()
@@ -353,10 +302,7 @@ namespace Complete
             {
                 m_Chickens[i].EnableControl();
             }
-
-            //m_Chickens[0].EnableControl();
         }
-
 
         private void DisableTankControl()
         {
@@ -364,10 +310,6 @@ namespace Complete
             {
                 m_Tanks[i].DisableControl();
             }
-
-            
-            //m_Chickens[0].DisableControl();
-            
         }
 
         private void DisableChickenControl()
@@ -376,10 +318,6 @@ namespace Complete
             {
                 m_Chickens[i].DisableControl();
             }
-
-
-            //m_Chickens[0].DisableControl();
-
         }
 
         private void DestroyAllChickens()

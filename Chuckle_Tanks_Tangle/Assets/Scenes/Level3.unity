@@ -578,13 +578,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119620639}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -31.2, y: 0, z: 6.6}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1282556331
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,13 +719,13 @@ MonoBehaviour:
   m_Chickens:
   - m_SpawnPoint: {fileID: 1119620640}
     m_Instance: {fileID: 0}
-  - m_SpawnPoint: {fileID: 94272972}
+  - m_SpawnPoint: {fileID: 1119620640}
     m_Instance: {fileID: 0}
-  - m_SpawnPoint: {fileID: 94272972}
+  - m_SpawnPoint: {fileID: 1119620640}
     m_Instance: {fileID: 0}
-  - m_SpawnPoint: {fileID: 94272972}
+  - m_SpawnPoint: {fileID: 1119620640}
     m_Instance: {fileID: 0}
-  - m_SpawnPoint: {fileID: 94272972}
+  - m_SpawnPoint: {fileID: 1119620640}
     m_Instance: {fileID: 0}
 --- !u!4 &1304999366
 Transform:
@@ -752,7 +752,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24328132, guid: 86a7353f2579d476fbaa7f161c2e5d00,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8ce5d020a687c314891341b4126d1de2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1912439a3fbda9346b668764f01a55da, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -760,7 +760,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

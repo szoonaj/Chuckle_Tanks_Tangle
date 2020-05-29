@@ -9,16 +9,10 @@ namespace Complete
 
         public float m_timeInterval = 0.5f;
         public GameObject m_foodPrefab;
-        // Start is called before the first frame update
+
         void Start()
         {
             InvokeRepeating("CreateFood", 1f, m_timeInterval);
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
 
         private Vector3 DrawFoodSpawnPoints()
@@ -41,7 +35,7 @@ namespace Complete
         private void CreateFood()
         {
             GameObject food;
-            food = Instantiate(m_foodPrefab, DrawFoodSpawnPoints(), Quaternion.identity) as GameObject;
+            food = Instantiate(m_foodPrefab, DrawFoodSpawnPoints(), Quaternion.AngleAxis(90f, DrawFoodSpawnPoints())) as GameObject;
             food.SetActive(true);
         }
     }
